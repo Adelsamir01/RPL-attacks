@@ -11,17 +11,17 @@ This project implements the RPL (Routing Protocol for Low-power and Lossy Networ
 - **`Makefile`:** Instructions for building the project.
 - **`sim_script.js` file:** JavaScript script for running simulations.
 - **`adel` folder:**
-  - **Data Analysis Scripts:** Python scripts for aggregating and analyzing control messages for each node.
-  - **`PCAP` folder:** PCAP files captured for each attack scenario (including a baseline without attacks) and node 7.
+  - **`scripts` folder:** Various python scripts for analysing log data such as aggregating and analyzing control messages for each node.
+  - **`PCAP` folder:** PCAP files captured for each attack scenario (including a baseline without attacks), each attack was run for 10 minutes and on node 7 for consistency. Feel free to run your own simulations with the same setup by going to the sim folder and running the .csc file in COOJA.
   - **`sim` folder:** COOJA simulation files for easy replication of the work.
   - **`logs` folder:** contains output logfiles from Contiki-NG simulations and there corresponding analysis.
 
   
-## **Running the Simulations:**
+## **Notes for Running the Simulations:**
 
 1. **Enable an Attack:**
-   - Uncomment the corresponding `#define` line in `project-conf.h`.
-   - Add the attack name to the JavaScript array.
+   - Uncomment the corresponding `#define` line in `project-conf.h` to enable the attack.
+   - Uncomment or Add the attack to the attack array in `sim_script.js` and define the attack parameters such as when to start the attack, when to stop it, and what node to target.
 
 2. **Adjust Logging Path:**
    - Edit the logging path in the code and remove any trailing slashes (`/`).
@@ -63,6 +63,5 @@ This section provides summaries and implementation details for each attack, enha
   - **Description:** Misleads or overwhelms routing tables with bogus routes by assuming multiple fake identities.
   - **Implementation:** Modifies `uip-icmp6.c` to change the link-layer and link-local addresses using `linkaddr_set_node_addr` and `uip_ds6_set_addr_iid` functions.
 
-## **Additional Notes:**
 
-Feel free to reach out if you have any questions or encounter issues replicating this work. Consider contributing to the project by extending it with further attacks or functionalities.
+Feel free to reach out (ae455@kent.ac.uk) if you have any questions or encounter issues replicating this work.
