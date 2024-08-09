@@ -1,4 +1,3 @@
-```markdown
 # **RPL Attack Implementations for Contiki-NG and COOJA**
 
 This project implements the RPL (Routing Protocol for Low-power and Lossy Networks) attacks discussed in the paper:
